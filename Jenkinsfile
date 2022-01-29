@@ -21,6 +21,7 @@ pipeline {
             }
         }
     }
+
     post {
         // Always runs. And it runs before any of the other post conditions.
         always {
@@ -28,10 +29,10 @@ pipeline {
             deleteDir()
         }
         success {
-            sendEmail("Successful");
+            // sendEmail("Successful");
         }
         unstable {
-            sendEmail("Unstable");
+            // sendEmail("Unstable");
         }
         failure {
             sendEmail("Failed");

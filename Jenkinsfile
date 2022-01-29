@@ -28,12 +28,6 @@ pipeline {
             // Let's wipe out the workspace before we finish!
             deleteDir()
         }
-        success {
-            // sendEmail("Successful");
-        }
-        unstable {
-            // sendEmail("Unstable");
-        }
         failure {
             sendEmail("Failed");
         }

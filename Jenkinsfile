@@ -19,7 +19,7 @@ pipeline {
 
         stage("Create container"){
             steps {
-                sh "docker build -t ${APP_NAME}:latest -t ${APP_NAME}:${TAG} ." 
+                sh "docker build -t olbinski/${APP_NAME}:latest -t olbinski/${APP_NAME}:${TAG} ." 
             }
         }
 

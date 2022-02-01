@@ -17,6 +17,12 @@ pipeline {
             }
         }
 
+        stage('Tests') {
+            steps {
+                echo "run tests"
+            }
+        }
+
         stage("Create container"){
             steps {
                 sh "docker build -t olbinski/${APP_NAME}:latest -t olbinski/${APP_NAME}:${TAG} ." 
@@ -40,6 +46,18 @@ pipeline {
 
             steps {
                 sh "docker push olbinski/${APP_NAME}:${TAG}"
+            }
+        }
+
+        stage('Deploy to prod') {
+            when {
+                branch "master"
+            }
+
+            steps {
+                echo "login to minikube ssh"
+                echo "kubectl apply -f application.yml"
+                echo "exit"
             }
         }
     }

@@ -9,15 +9,15 @@ pipeline {
 
         stage('Compile') {
             steps {
-                echo "-=- compiling project -=-"
-                sh "./mvnw clean compile"
+                echo "-=- compiling and package project -=-"
+                  sh "./mvnw clean package"
             }
         }
 
-        stage("Package"){
+        stage("Create container"){
             steps {
-                echo "-=- Crateing JARS -=-"
-                sh "./mvnw package"
+                echo "-=- crating docker image JARS -=-"
+                sh "docker build -t app:latest ."
             }
         }
     }

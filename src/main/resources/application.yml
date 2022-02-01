@@ -1,12 +1,13 @@
-
 spring:
   datasource:
-    password: app_db
-    username: app_db
-    url: jdbc:mysql://192.168.33.11:3306/app_db?serverTimezone=UTC
+    password: ${MYSQL_PASSWORD}
+    username: ${MYSQL_USER}
+    url: ${APP_DATABASE_CONNECTION_STRING}
+
 
   jpa:
     hibernate:
       ddl-auto: update
 server:
-  port: 8181
+  port: ${APP_PORT} 
+  

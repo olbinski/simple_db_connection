@@ -4,7 +4,7 @@ pipeline {
     // global env variables
     environment {
         EMAIL_RECIPIENTS = 'dawid166@gmail.com'
-        TAG = 'app:' + changeString
+        TAG = 'app:' + getChangeString()
 
     }
     stages {

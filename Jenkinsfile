@@ -24,14 +24,22 @@ pipeline {
         }
 
         stage('Auth dockerHub') {
+             when {
+                branch "master"
+            }
+            
             steps {
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
         }
 
         stage('Push docker image') {
+            when {
+                branch "master"
+            }
+
             steps {
-                sh "docker push olbinski/${APP_NAME}:${TAG}"
+                sh "docker push olbinski/${APP_NAME}:${TAG} --all-tags"
             }
         }
     }

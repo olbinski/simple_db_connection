@@ -4,7 +4,7 @@ pipeline {
     // global env variables
     environment {
         EMAIL_RECIPIENTS = 'dawid166@gmail.com'
-        TAG = 'app:' + getChangeString()
+        tag = sh(returnStdout: true, script: "git rev-parse --short=10 HEAD").trim()
 
     }
     stages {
@@ -19,7 +19,7 @@ pipeline {
         stage("Create container"){
             steps {
                 echo "-=- crating docker image JARS -=-"
-                sh "docker build -t app:latest -t $TAG ." 
+                sh "docker build -t app:latest -t app:${tag} ." 
             }
         }
     }

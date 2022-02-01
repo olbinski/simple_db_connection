@@ -4,6 +4,8 @@ pipeline {
     // global env variables
     environment {
         EMAIL_RECIPIENTS = 'dawid166@gmail.com'
+        TAG = 'app:' + changeString
+
     }
     stages {
 
@@ -17,7 +19,7 @@ pipeline {
         stage("Create container"){
             steps {
                 echo "-=- crating docker image JARS -=-"
-                sh "docker build -t app:latest -t app:" + + changeString() +  " ." 
+                sh "docker build -t app:latest -t $TAG ." 
             }
         }
     }

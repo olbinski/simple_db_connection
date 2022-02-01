@@ -17,7 +17,7 @@ pipeline {
         stage("Create container"){
             steps {
                 echo "-=- crating docker image JARS -=-"
-                sh "docker build -t app:latest ."
+                sh "docker build -t app:latest -t app:" + + changeString() +  " ." 
             }
         }
     }

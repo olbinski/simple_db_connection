@@ -39,7 +39,7 @@ pipeline {
             }
 
             steps {
-                sh "docker push olbinski/${APP_NAME}:${TAG} --all-tags"
+                sh "docker push olbinski/${APP_NAME} --all-tags"
             }
         }
     }

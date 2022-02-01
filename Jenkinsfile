@@ -19,7 +19,7 @@ pipeline {
 
         stage("Create container"){
             steps {
-                sh "docker build -t {$APP_NAME}:latest -t {$APP_NAME}:${TAG} ." 
+                sh "docker build -t ${APP_NAME}:latest -t ${APP_NAME}:${TAG} ." 
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
 
         stage('Push docker image') {
             steps {
-                sh "docker push {$APP_NAME}:${TAG}"
+                sh "docker push ${APP_NAME}:${TAG}"
             }
         }
     }

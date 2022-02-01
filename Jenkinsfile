@@ -34,7 +34,6 @@ pipeline {
                 sh "docker push {$APP_NAME}:${TAG}"
             }
         }
-}
     }
 
     post {

@@ -3,11 +3,10 @@ spring:
     password: ${MYSQL_PASSWORD}
     username: ${MYSQL_USER}
     url: ${APP_DATABASE_CONNECTION_STRING}
-
-
   jpa:
     hibernate:
       ddl-auto: update
+      dialect: org.hibernate.dialect.MySQLDialect
 server:
   port: ${APP_PORT} 
   
